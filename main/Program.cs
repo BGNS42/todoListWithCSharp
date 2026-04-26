@@ -63,8 +63,14 @@ class Program
                     string idInput = Console.ReadLine();
                     if (int.TryParse(idInput, out int id))
                     {
-                        gerenciador.ConcluirTarefa(id);
-                        Console.WriteLine("Tarefa Concluída");
+                        if (gerenciador.ConcluirTarefa(id))
+                        {
+                            Console.WriteLine("Tarefa Concluída com sucesso");  
+                        }
+                        else
+                        {
+                            Console.WriteLine("ID Inválido.");
+                        }
                     }
                     else
                     {

@@ -18,5 +18,14 @@ public class GerenciadorDeTarefas
         {
             tarefa.Concluir();
         }
-    }    
+    }
+
+    public void RemoverTarefa(int id)
+    {
+        var tarefa = tarefas.FirstOrDefault(t => t.Id == id);
+        if (tarefa != null)
+        {
+            tarefas.Remove(tarefa);
+        }
+    }   
 }

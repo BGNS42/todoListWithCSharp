@@ -73,6 +73,18 @@ class Program
                     break;
                 case "4":
                     Console.WriteLine("Você escolheu Remover");
+                    Console.WriteLine("Digite o ID da tarefa concluída:");
+                    string idRemove = Console.ReadLine();
+                    if (int.TryParse(idRemove, out int idR))
+                    {
+                        gerenciador.RemoverTarefa(idR);
+                        Console.WriteLine("Tarefa Removida com sucesso.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("ID Inválido.");
+                    }
+
                     break;
                 case "0":
                     Console.WriteLine("Você escolheu sair");

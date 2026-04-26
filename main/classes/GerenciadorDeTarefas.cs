@@ -7,7 +7,7 @@ public class GerenciadorDeTarefas
         tarefas.Add(tarefa);
     }
 
-    public List<Tarefa> ListarTarefas()
+    public IReadOnlyList<Tarefa> ListarTarefas()
     {
         return tarefas;
     }

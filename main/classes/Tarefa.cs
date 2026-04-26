@@ -1,6 +1,6 @@
 public class Tarefa
 {
-    public Guid Id { get; } = Guid.NewGuid();
+    public int Id { get; } = Random.Shared.Next(0, 10000);
     public string Titulo { get; private set; }
     public string Descricao { get; private set; }
     public bool Concluida { get; private set; } = false;

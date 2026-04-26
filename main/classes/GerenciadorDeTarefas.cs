@@ -11,9 +11,9 @@ public class GerenciadorDeTarefas
     {
         return tarefas;
     }
-    public void ConcluirTarefa(Guid id)
+    public void ConcluirTarefa(int id)
     {
-        var tarefa = tarefas.FirstOrDefault(t => t.Id.ToString().Substring(0, 8) == id.ToString());
+        var tarefa = tarefas.FirstOrDefault(t => t.Id == id);
         if (tarefa != null)
         {
             tarefa.Concluir();

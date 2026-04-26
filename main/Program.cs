@@ -54,14 +54,14 @@ class Program
                     foreach (var tarefa in tarefas)
                     {
                         string status = tarefa.Concluida ?  "[X]" : "[ ]";
-                        Console.WriteLine($"{status} {tarefa.Titulo} (ID: {tarefa.Id.ToString().Substring(0, 8)})");
+                        Console.WriteLine($"{status} {tarefa.Titulo} (ID: {tarefa.Id:D4})");
                     }
                     break;
                 case "3":
                     Console.WriteLine("Você escolheu concluir tarefa");
                     Console.WriteLine("Digite o ID da tarefa concluída:");
                     string idInput = Console.ReadLine();
-                    if (Guid.TryParse(idInput, out Guid id))
+                    if (int.TryParse(idInput, out int id))
                     {
                         gerenciador.ConcluirTarefa(id);
                         Console.WriteLine("Tarefa Concluída");

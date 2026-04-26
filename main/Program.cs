@@ -28,6 +28,8 @@ class Program
         {
             Console.WriteLine("1 - Adicionar tarefa");
             Console.WriteLine("2 - Listar tarefas");
+            Console.WriteLine("3 - Concluir tarefa");
+            Console.WriteLine("4 - Remover tarefa");
             Console.WriteLine("0 - sair");
             string inputServico = Console.ReadLine();
             switch (inputServico)
@@ -55,6 +57,23 @@ class Program
                         Console.WriteLine($"{status} {tarefa.Titulo} (ID: {tarefa.Id.ToString().Substring(0, 8)})");
                     }
                     break;
+                case "3":
+                    Console.WriteLine("Você escolheu concluir tarefa");
+                    Console.WriteLine("Digite o ID da tarefa concluída:");
+                    string idInput = Console.ReadLine();
+                    if (Guid.TryParse(idInput, out Guid id))
+                    {
+                        gerenciador.ConcluirTarefa(id);
+                        Console.WriteLine("Tarefa Concluída");
+                    }
+                    else
+                    {
+                        Console.WriteLine("ID Inválido");
+                    }
+                    break;
+                case "4":
+                    Console.WriteLine("Você escolheu Remover");
+                    break;
                 case "0":
                     Console.WriteLine("Você escolheu sair");
                     Console.WriteLine("Pressione ENTER para confirmar");
@@ -63,7 +82,7 @@ class Program
                     encerrou = true;
                     break;
                 default:
-                    Console.WriteLine("Digite um valor entre 0 e 2");
+                    Console.WriteLine("Digite um valor entre 0 e 4");
                     Console.ReadLine();
                     break;
             }

@@ -9,11 +9,14 @@ public class GerenciadorDeTarefas
 
     public List<Tarefa> ListarTarefas()
     {
-        // string todo = "";
-        // foreach (var tarefa in tarefas)
-        // {
-        //     todo += $"Titulo: {tarefa.Titulo}\nDescrição: {tarefa.Descricao}\nConcluída: {tarefa.Concluida}\n\n";
-        // }
         return tarefas;
     }
+    public void ConcluirTarefa(Guid id)
+    {
+        var tarefa = tarefas.FirstOrDefault(t => t.Id.ToString().Substring(0, 8) == id.ToString());
+        if (tarefa != null)
+        {
+            tarefa.Concluir();
+        }
+    }    
 }

@@ -12,7 +12,7 @@ public class Tarefa
         Concluida = false;
     }
 
-    public void ConcluirTarefa()
+    public void Concluir()
     {
         Concluida = true;
     }

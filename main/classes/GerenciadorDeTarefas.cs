@@ -14,7 +14,7 @@ public class GerenciadorDeTarefas
     public bool ConcluirTarefa(int id)
     {
         var tarefa = tarefas.FirstOrDefault(t => t.Id == id);
-        if (tarefa != null)
+        if (tarefa != null && tarefa.Concluida == false)
         {
             tarefa.Concluir();
             return true;

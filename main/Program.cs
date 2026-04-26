@@ -55,6 +55,7 @@ class Program
                     {
                         string status = tarefa.Concluida ?  "[X]" : "[ ]";
                         Console.WriteLine($"{status} {tarefa.Titulo} (ID: {tarefa.Id:D4})");
+                        Console.WriteLine($"Descrição: {tarefa.Descricao}\n");
                     }
                     break;
                 case "3":

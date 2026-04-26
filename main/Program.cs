@@ -77,13 +77,19 @@ class Program
                     string idRemove = Console.ReadLine();
                     if (int.TryParse(idRemove, out int idR))
                     {
-                        gerenciador.RemoverTarefa(idR);
-                        Console.WriteLine("Tarefa Removida com sucesso.");
+                        if (gerenciador.ConcluirTarefa(idR))
+                        {
+                            Console.WriteLine("Tarefa Removida com sucesso.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("ID Inválido.");
+                        }
                     }
                     else
                     {
                         Console.WriteLine("ID Inválido.");
-                    }
+                    }                    
 
                     break;
                 case "0":

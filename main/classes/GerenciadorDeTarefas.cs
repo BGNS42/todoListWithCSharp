@@ -11,13 +11,16 @@ public class GerenciadorDeTarefas
     {
         return tarefas;
     }
-    public void ConcluirTarefa(int id)
+    public bool ConcluirTarefa(int id)
     {
         var tarefa = tarefas.FirstOrDefault(t => t.Id == id);
         if (tarefa != null)
         {
             tarefa.Concluir();
+            return true;
         }
+
+        return false;
     }
 
     public void RemoverTarefa(int id)

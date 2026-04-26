@@ -7,13 +7,13 @@ public class GerenciadorDeTarefas
         tarefas.Add(tarefa);
     }
 
-    public string MostrarListaDeTarefas()
+    public List<Tarefa> ListarTarefas()
     {
-        string todo = "";
-        foreach (var tarefa in tarefas)
-        {
-            todo += $"Titulo: {tarefa.Titulo}\nDescrição: {tarefa.Descricao}\nConcluída: {tarefa.Concluida}\n\n";
-        }
-        return todo;
+        // string todo = "";
+        // foreach (var tarefa in tarefas)
+        // {
+        //     todo += $"Titulo: {tarefa.Titulo}\nDescrição: {tarefa.Descricao}\nConcluída: {tarefa.Concluida}\n\n";
+        // }
+        return tarefas;
     }
 }

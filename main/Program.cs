@@ -16,6 +16,8 @@ class Program
         // string list = gere.MostrarListaDeTarefas();
 
         // Console.WriteLine(list);
+        GerenciadorDeTarefas gerenciador = new GerenciadorDeTarefas();
+
         Console.WriteLine("Digite o seu nome:");
         string usuario = Console.ReadLine();
         bool encerrou = false;
@@ -33,6 +35,13 @@ class Program
                     break;
                 case "2":
                     Console.WriteLine("Você escolheu listar as tarefa");
+                    var tarefas = gerenciador.ListarTarefas();
+
+                    foreach (var tarefa in tarefas)
+                    {
+                        string status = tarefa.Concluida ?  "[X]" : "[ ]";
+                        Console.WriteLine($"{status} {tarefa.Titulo} (ID: {tarefa.Id.ToString().Substring(0, 8)})");
+                    }
                     break;
                 case "0":
                     Console.WriteLine("Você escolheu sair");

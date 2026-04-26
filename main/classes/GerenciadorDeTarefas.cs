@@ -23,12 +23,15 @@ public class GerenciadorDeTarefas
         return false;
     }
 
-    public void RemoverTarefa(int id)
+    public bool RemoverTarefa(int id)
     {
         var tarefa = tarefas.FirstOrDefault(t => t.Id == id);
         if (tarefa != null)
         {
             tarefas.Remove(tarefa);
+            return true;
         }
+
+        return false;
     }   
 }

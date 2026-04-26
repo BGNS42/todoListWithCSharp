@@ -1,4 +1,6 @@
-﻿namespace main;
+﻿using System.Diagnostics;
+
+namespace main;
 
 class Program
 {
@@ -32,6 +34,16 @@ class Program
             {
                 case "1":
                     Console.WriteLine("Você escolheu adicionar uma tarefa");
+
+                    Console.WriteLine("Digite o título:");
+                    string titulo = Console.ReadLine();
+                    Console.WriteLine("Digite a descrição:");
+                    string descricao = Console.ReadLine();
+                    
+                    Tarefa novaTarefa = new Tarefa(titulo, descricao);
+                    gerenciador.AdicionarTarefa(novaTarefa);
+
+                    Console.WriteLine("Tarefa Adicionada.");
                     break;
                 case "2":
                     Console.WriteLine("Você escolheu listar as tarefa");

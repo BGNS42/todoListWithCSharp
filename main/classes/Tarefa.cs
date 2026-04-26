@@ -5,10 +5,15 @@ public class Tarefa
     public string Descricao { get; private set; }
     public bool Concluida { get; private set; } = false;
 
-    public Tarefa(string titulo, string descricao, bool concluida = false)
+    public Tarefa(string titulo, string descricao)
     {
         Titulo = titulo;
         Descricao = descricao;
-        Concluida = concluida;
+        Concluida = false;
+    }
+
+    public void ConcluirTarefa()
+    {
+        Concluida = true;
     }
 }

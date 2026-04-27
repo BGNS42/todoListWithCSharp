@@ -39,6 +39,11 @@ class Program
 
                     Console.WriteLine("Digite o título:");
                     string titulo = Console.ReadLine();
+                    if (string.IsNullOrWhiteSpace(titulo))
+                    {
+                        Console.WriteLine("Título inválido.");
+                        break;
+                    }
                     Console.WriteLine("Digite a descrição:");
                     string descricao = Console.ReadLine();
                     

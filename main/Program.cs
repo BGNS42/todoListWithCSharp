@@ -6,18 +6,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Tarefa todos = new Tarefa("Titulo da tarefa", "descricao da tarefa");
-        // Tarefa todos2 = new Tarefa("Titulo da tarefa2", "descricao da tarefa2");
-        // //Console.WriteLine($"{todos.Id}");
-        // GerenciadorDeTarefas gere = new GerenciadorDeTarefas();
-
-        // gere.AdicionarTarefa(todos);
-        // gere.AdicionarTarefa(todos2);
-        // gere.AdicionarTarefa(todos2);
-
-        // string list = gere.MostrarListaDeTarefas();
-
-        // Console.WriteLine(list);
         GerenciadorDeTarefas gerenciador = new GerenciadorDeTarefas();
 
         Console.WriteLine("Digite o seu nome:");

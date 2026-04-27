@@ -1,86 +1,57 @@
-# todoListWithCSharp
-A simple to-do List using C#
+# 📝 Task Manager CLI (C#)
 
-# 🎯 MISSÃO: To-Do List em C# (Terminal + POO)
-## 🧠 Objetivo
+A command-line application developed in C# focused on practicing Object-Oriented Programming (OOP).
 
-Construir um sistema com:
+## 🚀 Features
 
-- Classes bem definidas
-- Separação de responsabilidades
-- Lógica limpa
-# 🧩 ETAPA 1 — Modelagem
+- ✅ Add tasks
+- 📋 List tasks
+- ✔️ Mark tasks as completed
+- ❌ Remove tasks
 
-## 📌 Classes principais
-### 🔹 `Tarefa`
+## 🧠 Concepts Applied
 
-Representa uma única tarefa.
+- Object-Oriented Programming (OOP)
+- Encapsulation
+- Separation of concerns
+- List manipulation (`List<T>`)
+- Simple layered application - structure
 
-**Deve ter:**
+## 🏗️ Project Structure
 
-- `Id` (Guid ou int)
-- `Titulo`
-- `Descricao`
-- `Concluida` (bool)
-
-### 🔹 `GerenciadorDeTarefas`
-
-Responsável por controlar tudo.
-
-**Deve ter:**
-
-Lista de tarefas (`List<Tarefa>`)
-
-Métodos:
-
-`AdicionarTarefa`
-`ListarTarefas`
-`ConcluirTarefa`
-`RemoverTarefa`
-
-👉 **IMPORTANTE**:
-
-`Tarefa` = dado
-`Gerenciador` = regra de negócio
-
-# 🛠️ ETAPA 2 — Desafio
-## 🔥 Desafio 1
-
-Classe `Tarefa` com:
-
-- Propriedades
-- Construtor
-
-## 🔥 Desafio 2
-
-Crie `GerenciadorDeTarefas` com:
-
-- Lista interna
-- Método AdicionarTarefa
-
-### 🔥 Desafio 3
-
-No `Program.cs`, cria um menu simples:
 ```
-1 - Adicionar tarefa
-2 - Listar tarefas
-0 - Sair
+/Models → System entities  
+/Services → Business logic  
+Program.cs → User interface 
 ```
-# 🧠 ETAPA 3 — Evolução 
-Quando tiver o básico rodando:
 
-## 🔥 Desafio 4
-- Marcar tarefa como concluída
-## 🔥 Desafio 5
-- Remover tarefa
-## 🔥 Desafio 6
+## 💻 How to Run
 
-- Mostrar:
+1. Clone the repository:
+```bash
+git clone https://github.com/seu-usuario/task-manager-cli-csharp.git
 ```
-[ ] Tarefa 1
-[X] Tarefa 2
+2. Navigate to the project folder:
+```bash
+cd task-manager-cli-csharp
 ```
-# ⚠️ ERROS COMUNS (evita isso)
-- ❌ Colocar toda lógica no Program.cs
-- ❌ Não usar classe separada
-- ❌ Misturar entrada do usuário com regra de negócio
+
+3. Run the project:
+```bash
+dotnet run
+```
+
+## 📌 Future Improvements
+- JSON persistence
+- Task editing
+- Filter by status (completed/pending)
+
+## 👨‍💻 Author
+
+[GitHub - BGNS42](https://github.com/BGNS42)
+
+Developed as part of my studies in Software Development and Systems Analysis for learning C# and OOP.
+
+## ⭐ Contributing / Feedback
+
+Feel free to open issues or suggest improvements. Feedback is always welcome!

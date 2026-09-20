@@ -4,36 +4,50 @@ namespace main;
 
 class Program
 {
+    static string? servicoMenu()
+    {
+        Console.WriteLine("1 - Adicionar tarefa");
+        Console.WriteLine("2 - Listar tarefas");
+        Console.WriteLine("3 - Concluir tarefa");
+        Console.WriteLine("4 - Remover tarefa");
+        Console.WriteLine("0 - sair");
+        return Console.ReadLine();
+    }
+
+    static string? intro()
+    {
+        Console.WriteLine("Digite o seu nome:");
+        return Console.ReadLine();
+    }
+
+    static string? addTitulo()
+    {
+        Console.WriteLine("Você escolheu adicionar uma tarefa");
+        Console.WriteLine("Digite o título:");
+        string? input = Console.ReadLine();
+        if (string.IsNullOrWhiteSpace(input))
+        {
+            Console.WriteLine("Título inválido.");
+            addTitulo();
+        }
+        return input;
+    }
     static void Main(string[] args)
     {
         GerenciadorDeTarefas gerenciador = new GerenciadorDeTarefas();
 
-        Console.WriteLine("Digite o seu nome:");
-        string usuario = Console.ReadLine();
         bool encerrou = false;
+        string? usuario = intro();
         Console.WriteLine($"Bem vindo(a) {usuario}, o que deseja?");
         while (!encerrou)
         {
-            Console.WriteLine("1 - Adicionar tarefa");
-            Console.WriteLine("2 - Listar tarefas");
-            Console.WriteLine("3 - Concluir tarefa");
-            Console.WriteLine("4 - Remover tarefa");
-            Console.WriteLine("0 - sair");
-            string inputServico = Console.ReadLine();
+            string? inputServico = servicoMenu();
             switch (inputServico)
             {
                 case "1":
-                    Console.WriteLine("Você escolheu adicionar uma tarefa");
-
-                    Console.WriteLine("Digite o título:");
-                    string titulo = Console.ReadLine();
-                    if (string.IsNullOrWhiteSpace(titulo))
-                    {
-                        Console.WriteLine("Título inválido.");
-                        break;
-                    }
+                    string? titulo = addTitulo();
                     Console.WriteLine("Digite a descrição:");
-                    string descricao = Console.ReadLine();
+                    string? descricao = Console.ReadLine();
                     
                     Tarefa novaTarefa = new Tarefa(titulo, descricao);
                     gerenciador.AdicionarTarefa(novaTarefa);
@@ -41,20 +55,25 @@ class Program
                     Console.WriteLine("Tarefa Adicionada.");
                     break;
                 case "2":
-                    Console.WriteLine("Você escolheu listar as tarefa");
+                    Console.WriteLine("Você escolheu listar as tarefas:");
                     var tarefas = gerenciador.ListarTarefas();
-
-                    foreach (var tarefa in tarefas)
+                    if (tarefas.Any())
                     {
-                        string status = tarefa.Concluida ?  "[X]" : "[ ]";
-                        Console.WriteLine($"{status} {tarefa.Titulo} (ID: {tarefa.Id:D4})");
-                        Console.WriteLine($"Descrição: {tarefa.Descricao}\n");
+                        foreach (var tarefa in tarefas)
+                        {
+                            string status = tarefa.Concluida ?  "[X]" : "[ ]";
+                            Console.WriteLine($"{status} {tarefa.Titulo} (ID: {tarefa.Id:D4})");
+                            Console.WriteLine($"Descrição: {tarefa.Descricao}\n");
+                        }
+                    } else
+                    {
+                        Console.WriteLine("Nenhuma tarefa\n");
                     }
                     break;
                 case "3":
                     Console.WriteLine("Você escolheu concluir tarefa");
                     Console.WriteLine("Digite o ID da tarefa concluída:");
-                    string idInput = Console.ReadLine();
+                    string? idInput = Console.ReadLine();
                     if (int.TryParse(idInput, out int id))
                     {
                         if (gerenciador.ConcluirTarefa(id))
@@ -74,8 +93,8 @@ class Program
                 case "4":
                     Console.WriteLine("Você escolheu Remover");
                     Console.WriteLine("Digite o ID da tarefa concluída:");
-                    string idRemove = Console.ReadLine();
-                    if (int.TryParse(idRemove, out int idR))
+                    idInput = Console.ReadLine();
+                    if (int.TryParse(idInput, out int idR))
                     {
                         if (gerenciador.RemoverTarefa(idR))
                         {
